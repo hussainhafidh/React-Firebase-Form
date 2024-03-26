@@ -9,8 +9,17 @@ import st from "./index.module.css";
 import { useNavigate } from "react-router-dom";
 
 const firebaseConfig = {
- 
+  apiKey: "AIzaSyAgagffc6oqCeuMVGP6sbQGUlbMBoTZmrs",
+  authDomain: "react-firebase-form-3fa63.firebaseapp.com",
+  databaseURL: "https://react-firebase-form-3fa63-default-rtdb.firebaseio.com",
+  projectId: "react-firebase-form-3fa63",
+  storageBucket: "react-firebase-form-3fa63.appspot.com",
+  messagingSenderId: "300363451421",
+  appId: "1:300363451421:web:b76ec44acc5dcd2fff0af4",
+  measurementId: "G-RCBL9Z9CJ5"
 };
+
+// Initialize Firebase
 const app3 = initializeApp(firebaseConfig);
 const database3 = getDatabase(app3);
 const imgstorage = getStorage(app3);
@@ -18,7 +27,7 @@ const imgstorage = getStorage(app3);
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [company, setCompany] = useState("");
+  // const [company, setCompany] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [message, setMessage] = useState("");
   const [sent, setSent] = useState(false);
@@ -34,7 +43,7 @@ const ContactForm = () => {
       name,
       email,
       phoneNumber,
-      company,
+      // company,
       message,
     });
 
@@ -42,7 +51,7 @@ const ContactForm = () => {
     setName("");
     setEmail("");
     setPhoneNumber("");
-    setCompany("");
+    // setCompany("");
     setMessage("");
   };
 
@@ -70,6 +79,7 @@ const ContactForm = () => {
                   onChange={(e) => setName(e.target.value)}
                   className={st.inputField}
                   required
+                  autocomplete="off"
                 />
               </label>
 
@@ -93,6 +103,7 @@ const ContactForm = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   className={st.inputField}
                   required
+                  autocomplete="off"
                 />
               </label>
               <br />
@@ -103,6 +114,7 @@ const ContactForm = () => {
                   className={st.inputField}
                   id={st.phinpt}
                   placeholder="Enter phone number"
+                  autocomplete="off"
                   defaultCountry="US"
                   value={phoneNumber}
                   required
